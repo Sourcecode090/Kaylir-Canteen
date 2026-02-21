@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #f8f4ee;
+  --primary: #5a3e2b;
+  --accent: #8c6a4f;
+  --card: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--primary);
+  line-height: 1.6;
+}
+
+header {
+  padding: 24px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.hero {
+  padding: 80px 8%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  margin-top: 24px;
+}
+
+.section {
+  padding: 80px 8%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+footer {
+  padding: 40px 8%;
+  text-align: center;
+  font-size: 14px;
+  color: #7a6656;
+}
+
+/* ================================
+   Full-Screen Contact Page
+================================ */
+
+.contact-page {
+  min-height: 100vh;
+  width: 100vw;
+
+  background-image: url("https://i.pinimg.com/1200x/6a/ec/4e/6aec4ec535c9c3c167a80254530c4b9d.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Soft overlay for readability */
+.contact-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(58, 48, 32, 0.9);
+  z-index: 0;
+}
+
+/* Content box */
+.contact-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+
+  padding: 60px 80px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 520px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 40px 28px;
+    margin: 20px;
+  }
+}
+
+/* ================================
+   Brand Logo Styling
+================================ */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand span {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* ================================
+   Menu Page – Static Background
+================================ */
+
+.menu-page {
+  min-height: 100vh;
+  background-image: url("https://i.pinimg.com/1200x/67/5c/e1/675ce1aaf322fae90f5497c888273e58.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* STATIC background */
+}
+
+/* Soft overlay for content readability */
+.menu-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(248, 244, 238, 0.92);
+  z-index: -1;
+}
+
+.hero img {
+  animation: slowZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.card {
+  animation: cardEnter 0.8s ease forwards;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+footer {
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.brand img {
+  transition: transform 0.3s ease;
+}
+
+.brand img:hover {
+  transform: rotate(-2deg) scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
